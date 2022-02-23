@@ -29,6 +29,8 @@
 /config/master.key
 
 /config/oauth_environment_variables.rb
+./config/oauth_environment_variables.rb
+config/oauth_environment_variables.rb
 .env
 
 /public/packs
