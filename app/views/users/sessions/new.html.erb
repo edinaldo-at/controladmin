@@ -1,0 +1,49 @@
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid"
+          alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <div class="d-flex align-items-center justify-content-center">
+            <%= link_to "Log in with Azure AD",     
+            user_azure_activedirectory_v2_omniauth_authorize_path,
+            class: 'btn btn-outline-primary btn-lg btn-block' %>
+          </div>
+
+          <div class="divider d-flex align-items-center justify-content-center my-4">
+            <p class="text-center fw-bold mx-3 mb-0">Or</p>
+          </div>
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <!-- Email input -->
+          <div class="field form-outline mb-4">
+            <%= f.label :email, class:"form-label" %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control form-control-lg",
+              placeholder: "Enter a valid email address" %>
+          </div>
+
+          <!-- Password input -->
+          <div class="field form-outline mb-3">
+            <%= f.label :password, class:"form-label" %><br />
+            <%= f.password_field :password, autocomplete: "current-password", class:"form-control form-control-lg" %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="field form-check mb-0">
+                <%= f.check_box :remember_me, class: "form-check-input me-2"%>
+                <%= f.label :remember_me, class:"form-check-label", for: "form2Example3" %>
+              </div>
+            </div>
+          <% end %>
+
+          <div class="actions text-center text-lg-start mt-4 pt-2">
+            <%= f.submit "Login",class: "btn btn-primary btn-lg bt-login" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

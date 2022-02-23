@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+  <div class="container">
+      <ul class="navbar-nav mr-auto">
+        <h2>Control Admin</h2>
+      </ul>
+      <ul class="navbar-nav justify-content-end">
+        <% if current_user %>
+          <li class="user-name">
+              <span><%= current_user.name%></span>
+          </li>
+          <li class="sign-out">
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "link-info" %>
+          </li>
+        <%end%>
+      </ul>
+  </div>
+</nav>

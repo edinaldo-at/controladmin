@@ -1,0 +1,52 @@
+<div class="container-fluid title-container">
+  <h1>Gestão de usuários</h1>
+</div>
+
+<div class="container-fluid menu-container"> 
+
+  <%= link_to 'Adicionar novo', new_tb_admin_path, class: 'btn btn-primary' %>
+  <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#Modal" data-bs-whatever="@mdo">Importar</button>
+  
+</div>
+
+<div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+  <%= render 'form_import'%>
+</div>
+
+
+<div class="table-responsive">
+  <table id="table-control" class="table table-hover" style="width:100%">
+    <thead>
+      <tr>
+        <th>Cliente</th>
+        <th>Computador</th>
+        <th>Userlocal</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tb_admins.each do |tb_admin| %>
+        <tr>
+          <td><%= tb_admin.cliente %></td>
+          <td><%= tb_admin.computador %></td>
+          <td><%= tb_admin.userlocal %></td>
+          <td class ="table-actions">
+            <%= link_to tb_admin_path(tb_admin) do %>
+              <i class="fas fa-eye"></i>
+            <%end%>
+            <%= link_to edit_tb_admin_path(tb_admin) do %>
+              <i class="fas fa-edit"></i>
+            <%end%>
+            <%if (current_user.email =='julio@skylan.com.br')%>
+              <%= link_to tb_admin, method: :delete, data: { confirm: 'Are you sure?', :title => "Deseja realmente exluir?" } do %>
+                <i class="fas fa-trash-alt"></i>
+              <%end%>
+            <%end%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br>

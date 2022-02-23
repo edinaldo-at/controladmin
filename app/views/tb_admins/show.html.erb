@@ -1,0 +1,45 @@
+<div class="sky-container">
+  <div class="sky-group">
+
+    <div class="text-group">
+      <p>
+        <strong>Cliente:</strong>
+        <%= @tb_admin.cliente %>
+      </p>
+
+      <p>
+        <strong>Computador:</strong>
+        <%= @tb_admin.computador %>
+      </p>
+
+      <p>
+        <strong>Userlocal:</strong>
+        <%= @tb_admin.userlocal %>
+      </p>
+    </div>
+
+
+    <p>
+    <strong>Senha:</strong>
+    <div class="row g-3">
+      <div class="col-auto">
+        <label for="inputPassword2" class="visually-hidden">Password</label>
+        <input type="password" id="pass" value="<%= decrypt(@tb_admin.senha, @tb_admin.public_key)%>" class="form-control">
+      </div>
+      <div class="col-auto">
+        <button id="copy-pass" class="btn btn-danger">Copy</button>
+      </div>
+      <div id="message"></div>
+    </div>
+  </p>
+
+  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group me-2" role="group" aria-label="First group">
+      <%= link_to 'Edit', edit_tb_admin_path(@tb_admin), class:"btn btn-primary" %> 
+    </div>
+    <div class="btn-group me-2" role="group" aria-label="Second group">
+      <%= link_to 'Back', tb_admins_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+  </div>
+</div>

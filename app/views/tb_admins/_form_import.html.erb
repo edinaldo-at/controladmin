@@ -1,0 +1,28 @@
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Importa Dados</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= form_with url: "/tb_admins/importar", method: :post, enctype:"multipart/form-data" do |form| %>
+
+            <div class="spinner visible-off">
+              <div class="spinner-border text-secondary" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+
+            <div class="field sky-field" >
+              <%= form.file_field "csv",  :accept => 'text/csv', class: 'form-control form-control-sm', id:"formFileLg"%>
+            </div>
+            
+            <span>csv separado por vírgula</span>
+            <div class="actions modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <%= form.submit "Enviar", class:"btn btn-primary open-spinner" %>
+            </div>   
+        <%end%>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,14 @@
+<% if notice %>
+  <div class="alert alert-primary alert-dismissible fade show" role="alert">
+    <i class="fas fa-check-circle"></i>
+    <div><%= notice %></div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<%end%>
+<% if alert %>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <i class="fas fa-exclamation-triangle"></i>
+    <div><%= alert %></div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>

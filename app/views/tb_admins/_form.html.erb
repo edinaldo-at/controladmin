@@ -1,0 +1,45 @@
+
+      <%= form_with(model: tb_admin) do |form| %>
+        <% if tb_admin.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(tb_admin.errors.count, "error") %> prohibited this tb_admin from being saved:</h2>
+
+            <ul>
+              <% tb_admin.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+      <div class="row g-1">
+        <div class="field input-group mb-3">
+          <%= form.label :cliente, class: "input-group-text" %>
+          <%= form.text_field :cliente, class:"form-control", placeholder:"Cliente", value: (params[:cliente] ? params[:cliente] : form.object.cliente)  %>
+        </div>
+
+        <div class="field input-group mb-3">
+          <%= form.label :computador, class: "input-group-text"%>
+          <%= form.text_field :computador, class:"form-control", placeholder:"Computador", value: (params[:computador] ? params[:computador] : form.object.computador) %>
+        </div>
+
+        <div class="field input-group mb-3">
+          <%= form.label :userlocal, class: "input-group-text" %>
+          <%= form.text_field :userlocal, class:"form-control", placeholder:"usuário local", value: (params[:userlocal] ? params[:userlocal] : form.object.userlocal )  %>
+        </div>
+
+        <div class="field input-group mb-3">
+          <%= form.label :senha, class: "input-group-text" %>
+          <%= form.text_field :senha, class:"form-control", placeholder:"Senha", value: (params[:senha] ? params[:senha] : form.object.senha)%>
+        </div>
+        
+
+        <div class="actions btn-group me-2" >
+          <%= form.submit 'Enviar', class: "btn btn-primary" %>
+        </div>
+        <div class="btn-group me-2" role="group" aria-label="Second group">
+          <%= link_to 'Back', tb_admins_path, class: "btn btn-secondary" %>
+        </div>
+        <div>
+      <% end %>
+
